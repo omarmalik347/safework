@@ -5,4 +5,17 @@ numpy
 pandas
 opencv-python-headless
 Pillow
-yolov5 @ git+https://github.com/ultralytics/yolov5.git
+torch
+torchvision
+numpy
+pandas
+opencv-python-headless
+Pillow
+matplotlib
+PyYAML
+tqdm
+requests
+seaborn
+scipy
+ultralytics
+
