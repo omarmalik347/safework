@@ -28,7 +28,7 @@ uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image")
 
     # Convert image for YOLOv5 processing
     img_array = np.array(image)
