@@ -3,8 +3,9 @@ import torch
 import numpy as np
 import cv2
 from PIL import Image
+from ultralytics import YOLO  # Import YOLO from ultralytics package
 
-# Fix OpenCV headless issue
+# Set OpenCV headless mode
 import os
 os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 
@@ -14,7 +15,7 @@ st.title("YOLOv5 Object Detection with Streamlit")
 @st.cache_resource
 def load_model():
     try:
-        model = torch.hub.load("ultralytics/yolov5", "yolov5s", pretrained=True)
+        model = YOLO("yolov5s.pt")  # Load YOLOv5 model
         return model
     except Exception as e:
         st.error(f"Error loading YOLOv5 model: {e}")
@@ -31,9 +32,11 @@ if uploaded_file:
 
     # Convert image for YOLOv5 processing
     img_array = np.array(image)
-    results = model(img_array) if model else None
-
-    if results:
+    
+    if model:
+        results = model(img_array)
         st.subheader("Detection Results")
-        results.render()
-        st.image(results.ims[0], caption="Detected Objects", use_column_width=True)
+
+        for result in results:
+            result.save(filename="output.jpg")  # Save detected image
+            st.image("output.jpg", caption="Detected Objects", use_column_width=True)
