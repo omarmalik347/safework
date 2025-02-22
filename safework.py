@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 import torch
 import numpy as np
@@ -10,7 +8,7 @@ from ultralytics import YOLO
 import os
 os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 
-st.title("Object Detection")
+st.title("Safe Work Detection Model")
 
 
 @st.cache_resource
@@ -34,7 +32,7 @@ if uploaded_file:
     img_array = np.array(image)
 
     if model:
-        results = model(img_array, conf=0.15)  # Set confidence threshold to 0.15
+        results = model(img_array, conf=0.15) 
         st.subheader("Detection Results")
 
         detected_objects = []
