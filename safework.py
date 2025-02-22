@@ -14,7 +14,7 @@ st.title("Safe Work Detection Model")
 @st.cache_resource
 def load_model():
     try:
-        model = YOLO("yolo11l.pt")  # Load model
+        model = YOLO("yolo11m.pt")  # Load model
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
