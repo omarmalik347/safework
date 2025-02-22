@@ -15,7 +15,7 @@ st.title("YOLOv5 Object Detection with Streamlit")
 @st.cache_resource
 def load_model():
     try:
-        model = YOLO("yolov5m.pt")  # Load YOLOv5 model
+        model = YOLO("yolov5n.pt")  # Load YOLOv5 model
         return model
     except Exception as e:
         st.error(f"Error loading YOLOv5 model: {e}")
