@@ -2,6 +2,7 @@ import streamlit as st
 import torch
 import numpy as np
 import cv2
+cv2.setUseOptimized(False)  # Disable OpenGL acceleration
 from PIL import Image
 from ultralytics import YOLO  
 
