@@ -9,16 +9,16 @@ from ultralytics import YOLO
 import os
 os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
 
-st.title("YOLOv5 Object Detection with Streamlit")
+st.title("Object Detection")
 
 
 @st.cache_resource
 def load_model():
     try:
-        model = YOLO("yolov5s.pt")  # Load YOLOv5 model
+        model = YOLO("yolov5m.pt")  # Load model
         return model
     except Exception as e:
-        st.error(f"Error loading YOLOv5 model: {e}")
+        st.error(f"Error loading model: {e}")
         return None
 
 model = load_model()
