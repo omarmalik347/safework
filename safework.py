@@ -2,7 +2,7 @@ import streamlit as st
 import torch
 import numpy as np
 import cv2
-cv2.setUseOptimized(False)  # Disable OpenGL acceleration
+#cv2.setUseOptimized(False)  # Disable OpenGL acceleration
 from PIL import Image
 from ultralytics import YOLO  
 
@@ -15,7 +15,7 @@ st.title("Safe Work Detection Model")
 @st.cache_resource
 def load_model():
     try:
-        model = YOLO("yolo11x-seg.pt")  # Load model
+        model = YOLO("yolov8m-seg.pt")  # Load model
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
